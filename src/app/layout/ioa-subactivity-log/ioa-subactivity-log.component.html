@@ -1,0 +1,119 @@
+<div [@routerTransition]>
+  <app-page-header [heading]="'IOA SubActivity Log'" [icon]="'fa-th-list'"></app-page-header>
+  <div class="row">
+      <div class="col">
+          <div class="card">
+              <div class="card-header">IOA SubActivity Log</div>
+              <div class="card-body table-responsive">
+                  <table class="table table-hover table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="1">
+                      <thead>
+                      <tr>
+                          <th>
+                            <mfDefaultSorter by="Activity Code">Activity Code</mfDefaultSorter>
+                          </th>
+                          <th>Activity Name</th>
+                          <th>IOA Name</th>
+                          <th>Project Code</th>
+                          <th>Project Name</th>
+                          <th>Sharing Bcode</th>
+                          <th>Start Date</th>
+                          <th>End Date</th>
+                          <th>Duration</th>
+                          <th>Success Duration</th>
+                          <th>Failure Duration</th>
+                          <th>Create Date</th>
+                          <th>Last Modified Date</th>
+                          <th>Modify</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                          <td>IOA-2</td>
+                          <td>1265</td>
+                          <td>IOA-01</td>
+                          <td>75686F</td>
+                          <td>RCT</td>
+                          <td>TFE657</td>
+                          <td>22-10-2018</td>
+                          <td>22-11-2018</td>
+                          <td>32</td>
+                          <td>321.33</td>
+                          <td>321.33</td>
+                          <td>22-11-2018</td>
+                          <td>22-11-2018</td>
+                          <td><a><i class="fa fa-fw fa-edit"></i></a></td>
+                      </tr>
+                      <tr>
+                        <td>IOA-1</td>
+                        <td>1265</td>
+                        <td>IOA-01</td>
+                        <td>75686F</td>
+                        <td>RCT</td>
+                        <td>TFE657</td>
+                        <td>22-10-2018</td>
+                        <td>22-11-2018</td>
+                        <td>32</td>
+                        <td>321.33</td>
+                        <td>321.33</td>
+                        <td>22-11-2018</td>
+                        <td>22-11-2018</td>
+                      </tr>
+                      <tr>
+                        <td>IOA-1</td>
+                        <td>1265</td>
+                        <td>IOA-01</td>
+                        <td>75686F</td>
+                        <td>RCT</td>
+                        <td>TFE657</td>
+                        <td>22-10-2018</td>
+                        <td>22-11-2018</td>
+                        <td>32</td>
+                        <td>321.33</td>
+                        <td>321.33</td>
+                        <td>22-11-2018</td>
+                        <td>22-11-2018</td>
+                      </tr>
+                      <tr>
+                        <td>IOA-1</td>
+                        <td>1265</td>
+                        <td>IOA-01</td>
+                        <td>75686F</td>
+                        <td>RCT</td>
+                        <td>TFE657</td>
+                        <td>22-10-2018</td>
+                        <td>22-11-2018</td>
+                        <td>32</td>
+                        <td>321.33</td>
+                        <td>321.33</td>
+                        <td>22-11-2018</td>
+                        <td>22-11-2018</td>
+                      </tr>
+                      <tr>
+                        <td>IOA-1</td>
+                        <td>1265</td>
+                        <td>IOA-01</td>
+                        <td>75686F</td>
+                        <td>RCT</td>
+                        <td>TFE657</td>
+                        <td>22-10-2018</td>
+                        <td>22-11-2018</td>
+                        <td>32</td>
+                        <td>321.33</td>
+                        <td>321.33</td>
+                        <td>22-11-2018</td>
+                        <td>22-11-2018</td>
+                      </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                            <td colspan="4">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                        </tfoot>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
