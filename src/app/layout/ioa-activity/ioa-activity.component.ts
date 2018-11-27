@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { slideToLeft } from '../../router.animations';
+import { IoaDataService } from '../../shared';
+import { ioaActivityUri } from '../../shared/config/uri';
 
 @Component({
   selector: 'app-ioa-activity',
@@ -9,9 +11,13 @@ import { slideToLeft } from '../../router.animations';
 })
 export class IoaActivityComponent implements OnInit {
 
-  constructor() { }
+  ioa_activity;
+  constructor(private dataservice:IoaDataService) { }
 
   ngOnInit() {
+    this.dataservice.getioa(ioaActivityUri).subscribe(res=>{
+      this.ioa_activity=res;
+    });
   }
 
 }

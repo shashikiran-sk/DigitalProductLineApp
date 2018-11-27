@@ -1,5 +1,9 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'IOA Info'" [icon]="'fa-chart-bar'"></app-page-header>
+  <!-- <angular-file-uploader>
+
+  </angular-file-uploader> -->
+  <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx,.csv">
   <div class="row">
       <div class="col">
           <div class="card">
@@ -8,97 +12,43 @@
                   <table class="table table-hover table-striped">
                       <thead>
                       <tr>
-                          <th>Work Order Code</th>
-                          <th>IOA Code</th>
-                          <th>IOA Name</th>
-                          <th>Project Code</th>
-                          <th>Project Name</th>
-                          <th>Sharing Bcode</th>
-                          <th>Start Date</th>
-                          <th>End Date</th>
-                          <th>Duration</th>
-                          <th>Success Duration</th>
-                          <th>Failure Duration</th>
-                          <th>Create Date</th>
-                          <th>Last Modified Date</th>
+                          <th>SEQ_NUMBER</th>
+                          <th>WORK_ORDER_CODE</th>
+                          <th>IOA_CODE</th>
+                          <th>IOA_NAME</th>
+                          <th>PROJECT_CODE</th>
+                          <th>PROJECT_NAME</th>
+                          <th>SHARING_BCODE</th>
+                          <th>STATUS</th>
+                          <th>START_DATE</th>
+                          <th>END_DATE</th>
+                          <th>DURATION</th>
+                          <th>SUCCESS_DURATION</th>
+                          <th>FAILURE_DURATION</th>
+                          <th>CREATE_DATE</th>
+                          <th>LAST_MODIFIED_DATE</th>
+                          <th>REMARKS</th>
                       </tr>
                       </thead>
                       <tbody>
-                      <tr>
-                          <td>IOA-1</td>
-                          <td>1265</td>
-                          <td>IOA-01</td>
-                          <td>75686F</td>
-                          <td>RCT</td>
-                          <td>TFE657</td>
-                          <td>22-10-2018</td>
-                          <td>22-11-2018</td>
-                          <td>32</td>
-                          <td>321.33</td>
-                          <td>321.33</td>
-                          <td>22-11-2018</td>
-                          <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
+                        <tr *ngFor="let row of ioainfo">
+                            <td>{{row.SEQ_NUMBER}}</td>
+                            <td>{{row.WORK_ORDER_CODE}}</td>
+                            <td>{{row.IOA_CODE}}-01</td>
+                            <td>{{row.IOA_NAME}}</td>
+                            <td>{{row.PROJECT_CODE}}</td>
+                            <td>{{row.PROJECT_NAME}}</td>
+                            <td>{{row.SHARING_BCODE}}</td>
+                            <td>{{row.STATUS}}</td>
+                            <td>{{row.START_DATE}}</td>
+                            <td>{{row.END_DATE}}</td>
+                            <td>{{row.DURATION}}</td>
+                            <td>{{row.SUCCESS_DURATION}}</td>
+                            <td>{{row.FAILURE_DURATION}}</td>
+                            <td>{{row.CREATE_DATE}}</td>
+                            <td>{{row.LAST_MODIFIED_DATE}}</td>
+                            <td>{{row.REMARKS}}</td>
+                        </tr>
                       </tbody>
                   </table>
               </div>

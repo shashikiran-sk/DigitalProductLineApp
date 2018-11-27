@@ -8,7 +8,7 @@ import { slideToRight } from '../../router.animations';
   animations:[slideToRight()]
 })
 export class IoaSubactivityLogComponent implements OnInit {
-
+  data:any;
   constructor() { }
 
   ngOnInit() {
