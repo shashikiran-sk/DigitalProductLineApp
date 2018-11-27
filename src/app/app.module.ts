@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -40,7 +40,10 @@ export const createTranslateLoader = (http: HttpClient) => {
     }),
     AppRoutingModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    { provide:LocationStrategy,useClass:HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
