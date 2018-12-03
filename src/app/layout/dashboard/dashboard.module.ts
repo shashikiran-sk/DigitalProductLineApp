@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { StatModule } from '../../shared';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { StatModule } from '../../shared';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    StatModule
+    StatModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

@@ -5,100 +5,56 @@
           <div class="card">
               <div class="card-header">IOA Package</div>
               <div class="card-body table-responsive">
-                  <table class="table table-hover table-striped">
+                  <table datatable *ngIf="ioapackage.length" id="ioapackage" class="cell-border compact stripe order-column">
                       <thead>
-                      <tr>
-                          <th>Activity Code</th>
-                          <th>Activity Name</th>
-                          <th>IOA Name</th>
-                          <th>Project Code</th>
-                          <th>Project Name</th>
-                          <th>Sharing Bcode</th>
-                          <th>Start Date</th>
-                          <th>End Date</th>
-                          <th>Duration</th>
-                          <th>Success Duration</th>
-                          <th>Failure Duration</th>
-                          <th>Create Date</th>
-                          <th>Last Modified Date</th>
-                      </tr>
+                        <tr>
+                            <th>SEQ_NUMBER</th>
+                            <th>WORK_ORDER_CODE</th>
+                            <th>IOA_CODE</th>
+                            <th>STD_PACKGE_CODE</th>
+                            <th>STD_PACKGE_NAME</th>
+                            <th>OWNER</th>
+                            <th>STATUS</th>
+                            <th>START_DATE</th>
+                            <th>END_DATE</th>
+                            <th>DURATION</th>
+                            <th>SUCCESS_DURATION</th>
+                            <th>FAILURE_DURATION</th>
+                            <th>MANUAL_ADJUST_DURATION</th>
+                            <th>ACTIVITY_COUNT</th>
+                            <th>TASK_COUNT</th>
+                            <th>TASK_QUANTITY</th>
+                            <th>TASK_FAIL_QUANTITY</th>
+                            <th>EXECUTION_METHOD</th>
+                            <th>CREATE_DATE</th>
+                            <th>LAST_MODIFIED_DATE</th>
+                            <th>REMARKS</th>
+                        </tr>
                       </thead>
                       <tbody>
-                      <tr>
-                          <td>IOA-1</td>
-                          <td>1265</td>
-                          <td>IOA-01</td>
-                          <td>75686F</td>
-                          <td>RCT</td>
-                          <td>TFE657</td>
-                          <td>22-10-2018</td>
-                          <td>22-11-2018</td>
-                          <td>32</td>
-                          <td>321.33</td>
-                          <td>321.33</td>
-                          <td>22-11-2018</td>
-                          <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
+                        <tr *ngFor="let row of ioapackage">
+                            <td>{{row.SEQ_NUMBER}}</td>
+                            <td>{{row.WORK_ORDER_CODE}}</td>
+                            <td>{{row.IOA_CODE}}</td>
+                            <td>{{row.STD_PACKGE_CODE}}</td>
+                            <td>{{row.STD_PACKGE_NAME}}</td>
+                            <td>{{row.OWNER}}</td>
+                            <td>{{row.STATUS}}</td>
+                            <td>{{row.START_DATE | date}}</td>
+                            <td>{{row.END_DATE | date}}</td>
+                            <td>{{row.DURATION}}</td>
+                            <td>{{row.SUCCESS_DURATION}}</td>
+                            <td>{{row.FAILURE_DURATION}}</td>
+                            <td>{{row.MANUAL_ADJUST_DURATION}}</td>
+                            <td>{{row.ACTIVITY_COUNT}}</td>
+                            <td>{{row.TASK_COUNT}}</td>
+                            <td>{{row.TASK_QUANTITY}}</td>
+                            <td>{{row.TASK_FAIL_QUANTITY}}</td>
+                            <td>{{row.EXECUTION_METHOD}}</td>
+                            <td>{{row.CREATE_DATE}}</td>
+                            <td>{{row.LAST_MODIFIED_DATE}}</td>
+                            <td>{{row.REMARKS}}</td>
+                        </tr>
                       </tbody>
                   </table>
               </div>

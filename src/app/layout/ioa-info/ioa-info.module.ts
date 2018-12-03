@@ -4,8 +4,8 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 import { IoaInfoRoutingModule } from './ioa-info-routing.module';
 import { IoaInfoComponent } from './ioa-info.component';
-import { PageHeaderModule, IoaDataService } from '../../shared';
-import { HttpModule } from '@angular/http';
+import { PageHeaderModule } from '../../shared';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [IoaInfoComponent],
@@ -14,10 +14,8 @@ import { HttpModule } from '@angular/http';
     IoaInfoRoutingModule,
     PageHeaderModule,
     AngularFileUploaderModule,
-    HttpModule
+    DataTablesModule
   ],
-  providers:[
-    IoaDataService
-  ]
+  providers:[]
 })
 export class IoaInfoModule { }

@@ -1,114 +1,94 @@
 <div [@routerTransition]>
   <app-page-header [heading]="'IOA SubActivity Log'" [icon]="'fa-th-list'"></app-page-header>
   <div class="row">
+    <div class="col-lg-12">
+            <ngb-accordion #acc="ngbAccordion"  isExpanded="false">
+                    <ngb-panel title="Advanced Search">
+                        <ng-template ngbPanelContent>
+                            <form [formGroup]="searchForm" (ngSubmit)="advancedSearch()">
+                                <div class="form-group">
+                                    <label for="searchField">Search Field</label>
+                                    <select formControlName="searchField" class="form-control" id="searchField" aria-describedby="searchField">
+                                        <option value="ACTIVITY_CODE">ACTIVITY CODE</option>
+                                        <option value="TASK_CODE">TASK CODE</option>
+                                        <option value="TASK_NAME">TASK NAME</option>
+                                        <option value="TASK_OWNER_ID">TASK OWNER ID</option>
+                                        <option value="WORKORDER_CODE">WORKORDER CODE</option>
+                                        <option value="IOA_CODE">IOA CODE</option>
+                                        <option value="STD_PACKAGE_CODE">STD PACKAGE CODE</option>
+                                        <option value="LOG_TYPE">LOG TYPE</option>
+                                    </select>
+                                    <small id="searchField" class="form-text text-muted">Select proper field and enter corresponding value for search</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="InputSearch">Search Text</label>
+                                    <input type="text" formControlName="searchText" class="form-control" id="InputSearch" placeholder="Search Value">
+                                </div>
+                                <button type="submit" class="btn btn-primary" >Submit</button>
+                                <button class="btn btn-default" (click)="dataInit()"> Reset</button>
+                            </form>
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+    </div>
+  </div>
+  <div class="row">
       <div class="col">
           <div class="card">
               <div class="card-header">IOA SubActivity Log</div>
               <div class="card-body table-responsive">
-                  <table class="table table-hover table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="1">
+                  <table datatable *ngIf="ioa_subactivitylog.length"  class="cell-border compact stripe order-column" >
                       <thead>
-                      <tr>
-                          <th>
-                            <mfDefaultSorter by="Activity Code">Activity Code</mfDefaultSorter>
-                          </th>
-                          <th>Activity Name</th>
-                          <th>IOA Name</th>
-                          <th>Project Code</th>
-                          <th>Project Name</th>
-                          <th>Sharing Bcode</th>
-                          <th>Start Date</th>
-                          <th>End Date</th>
-                          <th>Duration</th>
-                          <th>Success Duration</th>
-                          <th>Failure Duration</th>
-                          <th>Create Date</th>
-                          <th>Last Modified Date</th>
-                          <th>Modify</th>
-                      </tr>
+                        <tr>
+                            <!-- <th><mfDefaultSorter by="Activity Code">Activity Code</mfDefaultSorter></th> -->
+                            <th>SEQ NUMBER</th>
+                            <th>ACTIVITY CODE</th>
+                            <th>TASK CODE</th>
+                            <th>TASK NAME</th>
+                            <th>TASK OWNER ID</th>
+                            <th>TASK OWNER NAME</th>
+                            <th>LOG TYPE</th>
+                            <th>STATUS</th>
+                            <th>START TIME</th>
+                            <th>END TIME</th>
+                            <th>DURATION(hrs)</th>
+                            <th>QUANTITY</th>
+                            <th>EXECUTION METHOD</th>
+                            <th>CREATE DATE</th>
+                            <th>WORK ORDER CODE</th>
+                            <th>IOA CODE</th>
+                            <th>STD PACKAGE CODE</th>
+                            <th>REMARKS</th>
+                        </tr>
                       </thead>
                       <tbody>
-                      <tr>
-                          <td>IOA-2</td>
-                          <td>1265</td>
-                          <td>IOA-01</td>
-                          <td>75686F</td>
-                          <td>RCT</td>
-                          <td>TFE657</td>
-                          <td>22-10-2018</td>
-                          <td>22-11-2018</td>
-                          <td>32</td>
-                          <td>321.33</td>
-                          <td>321.33</td>
-                          <td>22-11-2018</td>
-                          <td>22-11-2018</td>
-                          <td><a><i class="fa fa-fw fa-edit"></i></a></td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
-                      <tr>
-                        <td>IOA-1</td>
-                        <td>1265</td>
-                        <td>IOA-01</td>
-                        <td>75686F</td>
-                        <td>RCT</td>
-                        <td>TFE657</td>
-                        <td>22-10-2018</td>
-                        <td>22-11-2018</td>
-                        <td>32</td>
-                        <td>321.33</td>
-                        <td>321.33</td>
-                        <td>22-11-2018</td>
-                        <td>22-11-2018</td>
-                      </tr>
+                        <tr *ngFor="let row of ioa_subactivitylog">
+                            <td>{{row.SEQ_NUMBER}}</td>
+                            <td>{{row.ACTIVITY_CODE}}</td>
+                            <td>{{row.TASK_CODE}}</td>
+                            <td>{{row.TASK_NAME}}</td>
+                            <td>{{row.TASK_OWNER_ID}}</td>
+                            <td>{{row.TASK_OWNER_NAME}}</td>
+                            <td>{{row.LOG_TYPE}}</td>
+                            <td>{{row.STATUS}}</td>
+                            <td>{{row.START_TIME}}</td>
+                            <td>{{row.END_TIME}}</td>
+                            <td>{{row.DURATION}}</td>
+                            <td>{{row.QUANTITY}}</td>
+                            <td>{{row.EXECUTION_METHOD}}</td>
+                            <td>{{row.CREATE_DATE}}</td>
+                            <td>{{row.WORK_ORDER_CODE}}</td>
+                            <td>{{row.IOA_CODE}}</td>
+                            <td>{{row.STD_PACKAGE_CODE}}</td>
+                            <td>{{row.REMARKS}}</td>
+                            <!-- <td><a><i class="fa fa-fw fa-edit"></i></a></td> -->
+                        </tr>
                       </tbody>
                       <tfoot>
                         <tr>
-                            <td colspan="4">
+                            <!-- <td colspan="4">
                                 <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-                            </td>
+                            </td> -->
                         </tr>
                         </tfoot>
                   </table>

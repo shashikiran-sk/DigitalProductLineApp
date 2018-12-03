@@ -3,6 +3,7 @@ import { slideToLeft } from '../../router.animations';
 import { IoaDataService } from '../../shared';
 import { ioaActivityUri } from '../../shared/config/uri';
 
+
 @Component({
   selector: 'app-ioa-activity',
   templateUrl: './ioa-activity.component.html',
@@ -11,7 +12,7 @@ import { ioaActivityUri } from '../../shared/config/uri';
 })
 export class IoaActivityComponent implements OnInit {
 
-  ioa_activity;
+  ioa_activity:any[]=[];
   constructor(private dataservice:IoaDataService) { }
 
   ngOnInit() {

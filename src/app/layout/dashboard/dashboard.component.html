@@ -13,3 +13,48 @@
   </div>
 </div>
 <hr />
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card text-white bg-info mb-3">
+            <div class="card-header">Upload</div>
+            <div class="card-body">
+                <h4 class="card-title">Add proper format files.</h4>
+                <p class="card-text"></p>
+                <div class="col-lg-6">
+                <form >
+                    <fieldset class="form-group">
+                        <label>File Type</label>
+                        <select class="form-control" name="filetype" [(ngModel)]="filetype" (change)="selectFileType($event.target.value)" required>
+                            <option value="">None</option>
+                            <option value="CR_IOA">IOA Info</option>
+                            <option value="CR_PACK">IOA Package</option>
+                            <option value="CR_ACT">IOA Activity</option>
+                            <option value="CR_TASK">IOA SubActivity</option>
+                            <option value="CR_TASKLOG">IOA SubActivity Log</option>
+                        </select>
+                    </fieldset>
+                    <fieldset *ngIf="filetype=='CR_TASKLOG'">
+                        <label>Work Order</label>
+                        <select class="form-control" name="workorder" [(ngModel)]="workorder" (change)="workOrderChange(workorder)" required>
+                            <option value="">None</option>
+                            <option *ngFor="let code of workordercode" [value]="code.WO_IOA_CODE">{{code.WO_IOA_CODE}}</option>
+                        </select>
+                    </fieldset>
+                    <fieldset *ngIf="workorder && filetype=='CR_TASKLOG'">
+                        <label>Standard Package</label>
+                        <select class="form-control" name="stdpkg" [(ngModel)]="stdpkg"  required>
+                            <option value="">None</option>
+                            <option *ngFor="let code of std_pkg_code" [value]="code.STD_PACKAGE_CODE">{{code.STD_PACKAGE_NAME}}</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>Select File</label>
+                        <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".csv" required>
+                    </fieldset>
+                    <button class="btn btn-success" (click)="submitUpload()">Submit Button</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

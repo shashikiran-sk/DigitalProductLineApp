@@ -3,15 +3,15 @@
   <!-- <angular-file-uploader>
 
   </angular-file-uploader> -->
-  <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx,.csv">
   <div class="row">
       <div class="col">
           <div class="card">
               <div class="card-header">IOA INFO</div>
               <div class="card-body table-responsive">
-                  <table class="table table-hover table-striped">
+                  <table *ngIf="ioainfo.length"  datatable [dtOptions]="dtOptions" id="ioainfo" class="cell-border compact stripe order-column">
                       <thead>
                       <tr>
+                          <th>REFRESH</th>
                           <th>SEQ_NUMBER</th>
                           <th>WORK_ORDER_CODE</th>
                           <th>IOA_CODE</th>
@@ -25,16 +25,24 @@
                           <th>DURATION</th>
                           <th>SUCCESS_DURATION</th>
                           <th>FAILURE_DURATION</th>
+                          <th>MANUAL_ADJUST_DURATION</th>
+                          <th>PACKAGE_COUNT</th>
+                          <th>ACTIVITY_COUNT</th>
+                          <th>TASK_COUNT</th>
+                          <th>TASK_QUANTITY</th>
+                          <th>TASK_FAIL_QUANTITY</th>
                           <th>CREATE_DATE</th>
                           <th>LAST_MODIFIED_DATE</th>
+                          <th>LAST_DATA_REFRESH</th>
                           <th>REMARKS</th>
                       </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let row of ioainfo">
+                            <td><button class="btn btn-success" (click)="refresh(row.IOA_CODE)">Refresh</button></td>
                             <td>{{row.SEQ_NUMBER}}</td>
                             <td>{{row.WORK_ORDER_CODE}}</td>
-                            <td>{{row.IOA_CODE}}-01</td>
+                            <td>{{row.IOA_CODE}}</td>
                             <td>{{row.IOA_NAME}}</td>
                             <td>{{row.PROJECT_CODE}}</td>
                             <td>{{row.PROJECT_NAME}}</td>
@@ -45,8 +53,15 @@
                             <td>{{row.DURATION}}</td>
                             <td>{{row.SUCCESS_DURATION}}</td>
                             <td>{{row.FAILURE_DURATION}}</td>
+                            <td>{{row.MANUAL_ADJUST_DURATION}}</td>
+                            <td>{{row.PACKAGE_COUNT}}</td>
+                            <td>{{row.ACTIVITY_COUNT}}</td>
+                            <td>{{row.TASK_COUNT}}</td>
+                            <td>{{row.TASK_QUANTITY}}</td>
+                            <td>{{row.TASK_FAIL_QUANTITY}}</td>
                             <td>{{row.CREATE_DATE}}</td>
                             <td>{{row.LAST_MODIFIED_DATE}}</td>
+                            <td>{{row.LAST_DATA_REFRESH}}</td>
                             <td>{{row.REMARKS}}</td>
                         </tr>
                       </tbody>

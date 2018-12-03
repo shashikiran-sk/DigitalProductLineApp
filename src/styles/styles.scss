@@ -5,6 +5,8 @@
 @import "rtl";
 @import "responsive";
 
+@import "~datatables.net-dt/css/jquery.dataTables.min.css";
+
 @media print {
     .breadcrumb {
         display: none !important;

@@ -8,7 +8,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './shared';
+import { AuthGuard, IoaDataService } from './shared';
+import { HttpModule } from '@angular/http';
 
 
 // AoT requires an exported function for factories
@@ -31,6 +32,7 @@ export const createTranslateLoader = (http: HttpClient) => {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpModule,
     TranslateModule.forRoot({
       loader:{
         provide:TranslateLoader,
@@ -42,6 +44,7 @@ export const createTranslateLoader = (http: HttpClient) => {
   ],
   providers: [
     AuthGuard,
+    IoaDataService,
     { provide:LocationStrategy,useClass:HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
