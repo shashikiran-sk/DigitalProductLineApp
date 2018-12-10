@@ -27,12 +27,14 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataservice.getWorkOrderCode(workOrderUri).subscribe(result=>{
-      this.workordercode=result;
-    }
-    ,error=>{
-      console.log(error)
-    })
+    this.dataservice.getWorkOrderCode(workOrderUri).subscribe(
+      result=>{
+        this.workordercode=result;
+      }
+      ,error=>{
+        console.log(error)
+      }
+    )
 }
 
   selectFileType(filetype:any){

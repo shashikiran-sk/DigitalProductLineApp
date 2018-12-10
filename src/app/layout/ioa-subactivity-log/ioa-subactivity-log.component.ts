@@ -5,6 +5,9 @@ import { ioaSubActivityLogUri, searchUri } from '../../shared/config/uri';
 import { FormBuilder,Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import * as $ from 'jquery';
+import 'datatables.net-buttons';
+import 'datatables.net';
 
 @Component({
   selector: 'app-ioa-subactivity-log',
@@ -16,6 +19,8 @@ export class IoaSubactivityLogComponent implements OnInit,AfterViewInit,OnDestro
   data:any;
   ioa_subactivitylog:any[]=[];
   public isCollapsed = false;
+
+  dtOptions:any={}
   dtTrigger: Subject<any> = new Subject();
   searchForm = this.fb.group({
     searchField:['',Validators.required],
@@ -34,6 +39,22 @@ export class IoaSubactivityLogComponent implements OnInit,AfterViewInit,OnDestro
 
   ngAfterViewInit(): void {
     this.dtTrigger.next();
+    this.dtOptions = {
+      dom:'Bfrtip',
+      buttons:[
+        {
+          extend:'csv',
+          text:'Export CSV',
+          filename:'IOA Task Log'
+        },
+        {
+          extend:'excel',
+          text:'Export Excel',
+          filename:'IOA Task Log'
+        },
+        'colvis'
+      ]
+    }
   }
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
@@ -56,6 +77,7 @@ export class IoaSubactivityLogComponent implements OnInit,AfterViewInit,OnDestro
   dataInit(){
     this.dataservice.getioa(ioaSubActivityLogUri).subscribe(res=>{
       this.ioa_subactivitylog=res;
+      // $('#tasklog').DataTable()
       // this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
       //   // Destroy the table first
       //   dtInstance.destroy();

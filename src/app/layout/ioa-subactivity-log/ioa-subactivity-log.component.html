@@ -1,5 +1,5 @@
 <div [@routerTransition]>
-  <app-page-header [heading]="'IOA SubActivity Log'" [icon]="'fa-th-list'"></app-page-header>
+  <app-page-header [heading]="'IOA Task Log'" [icon]="'fa-th-list'"></app-page-header>
   <div class="row">
     <div class="col-lg-12">
             <ngb-accordion #acc="ngbAccordion"  isExpanded="false">
@@ -35,9 +35,9 @@
   <div class="row">
       <div class="col">
           <div class="card">
-              <div class="card-header">IOA SubActivity Log</div>
+              <div class="card-header">IOA Task Log</div>
               <div class="card-body table-responsive">
-                  <table datatable *ngIf="ioa_subactivitylog.length"  class="cell-border compact stripe order-column" >
+                  <table id="tasklog" *ngIf="ioa_subactivitylog.length" datatable [dtOptions]="dtOptions" class="cell-border compact stripe order-column" >
                       <thead>
                         <tr>
                             <!-- <th><mfDefaultSorter by="Activity Code">Activity Code</mfDefaultSorter></th> -->

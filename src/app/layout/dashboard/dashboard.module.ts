@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     DashboardRoutingModule,
     StatModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class DashboardModule { }
